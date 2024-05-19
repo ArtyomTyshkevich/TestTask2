@@ -21,7 +21,7 @@ namespace TestTask.Services.Implementations
                             .OrderByDescending(u => u.Orders
                                 .Where(o => o.CreatedAt.Year == 2003 && o.Status == Enums.OrderStatus.Delivered)
                                 .Sum(o => o.Price*o.Quantity))
-                            .FirstAsync();
+                            .FirstOrDefaultAsync();
         }
 
         public async Task<List<User>> GetUsers()

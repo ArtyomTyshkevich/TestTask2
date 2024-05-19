@@ -18,7 +18,7 @@ namespace TestTask.Services.Implementations
             return await db.Orders
                             .Where(o => o.Quantity > 1)
                             .OrderByDescending(o => o.CreatedAt)
-                            .FirstAsync();
+                            .FirstOrDefaultAsync();
         }
 
         public async Task<List<Order>> GetOrders()
